@@ -1,0 +1,29 @@
+data:
+  # Dataset-related setting
+  dataset:
+    name: 'wsj_phn'        # Specify dataset, must match to dataset/<corpus>.py
+    path: '/path/to/preprocessed/wsj'        # Path to preprocessed WSJ dataset
+    train_split: ['si284-0.9']              # Splits to be used as training set
+    dev_split: ['si284-0.1']                # Splits to be used as valid.   set
+    test_split: ['dev93']                   # Splits to be used as testing  set
+    batch_size: 32                                                # Batch sizes
+    audio_max_frames: 3000     # Max length of spectrogram to ensure batch size
+
+model:
+  feat:
+    config: '/path/to/config.yml'         # Config file of representation model
+    ckpt: '/path/to/ckpt.pth'                    # Path to stored ckpt of model
+    spec: 'unmasked-3'   # Improved result from unmasked feature of last layer,
+                         # this isn't updated to the preprint paper yet. Remove
+                         # this option to use masked feature as described in 
+                         # preprint version of NPC paper.
+  clf:
+    num_layers: 0                         # 0 layer indicated linear classifier
+    hidden_size: 0                       # No hidden size for linear classifier
+    n_class: 43                                 # 43 phones (including padding)
+
+hparas:
+    optimizer: 'Adam'
+    lr: 0.001
+    epoch: 100
+    decay: 0.9

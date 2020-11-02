@@ -1,0 +1,25 @@
+# See phn_clf_example, the only differences are dataset name and splits used
+data:
+  dataset:
+    name: 'wsj_spk'
+    path: '/path/to/preprocessed/wsj'
+    train_split: ['train_spk']
+    dev_split: ['dev_spk']
+    test_split: ['test_spk']
+    batch_size: 32
+    audio_max_frames: 3000
+
+model:                                    
+  feat:
+    config: '/path/to/config.yml'
+    ckpt: /path/to/ckpt.pth'
+    spec: 'unmasked-3'
+  clf:
+    num_layers: 0
+    hidden_size: 0
+    n_class: 259
+
+hparas:
+    optimizer: 'Adam'
+    lr: 0.001
+    epoch: 100

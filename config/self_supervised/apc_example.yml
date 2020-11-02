@@ -1,0 +1,29 @@
+# See vqapc_example, the only difference is that vq is disabled
+data:
+  dataset:
+    name: 'LibriSpeech'
+    path: '/path/to/LibriSpeech'
+    train_split: ['train-clean-360']
+    dev_split: ['dev-clean']
+    batch_size: 32
+    audio_max_frames: 1500 
+  audio:
+    feat_type: 'fbank'
+    feat_dim:  80
+    frame_length: 25
+    frame_shift: 10
+    decode_wav: False
+
+model:
+  method: 'apc'
+  n_future: 5
+  paras:
+    num_layers: 3
+    hidden_size: 512
+    dropout: 0.1
+    residual: True
+
+hparas:
+    optimizer: 'Adam'
+    lr: 0.0001
+    epoch: 100

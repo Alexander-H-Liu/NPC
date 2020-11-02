@@ -1,0 +1,7 @@
+tqdm
+torch
+scipy
+pyyaml
+pandas
+torchaudio
+tensorboard

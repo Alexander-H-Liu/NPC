@@ -1,0 +1,38 @@
+data:
+  # Dataset-related setting
+  dataset:
+    name: 'LibriSpeech'    # Specify dataset, must match to dataset/<corpus>.py
+    path: '/path/to/LibriSpeech'         # Path to unzipped LibriSpeech dataset
+    train_split: ['train-clean-360']        # Splits to be used as training set
+    dev_split: ['dev-clean']                # Splits to be used as valid.   set
+    batch_size: 32                                                # Batch sizes
+    audio_max_frames: 1500     # Max length of spectrogram to ensure batch size
+  # Attributes of audio feature
+  audio:
+    feat_type: 'fbank'                                           # Feature type
+    feat_dim:  80                                           # Feature dimension
+    frame_length: 25                                        # Window size in ms
+    frame_shift: 10                                            # Hop size in ms
+    cmvn: True                      # Apply uttr.-wised CMVN on Mel spectrogram
+
+model:
+  method: 'npc'                                         # Accepts npc/apc/vqapc
+  paras:
+    kernel_size: 15     # Receptive field size (R) = kernel_size + 2*(n_blocks)
+    mask_size: 5     # Desired input mask size (M_in) as described in NPC paper
+    n_blocks: 4                     # Number of ConvBlocks stacked in NPC model
+    hidden_size: 512                       # Dimension of feature of all layers
+    dropout: 0.1                                         # Dropout in ConvBlock
+    residual: True                           # Residual connection in ConvBlock
+    batch_norm: True                             # Apply BatchNorm in ConvBlock
+    activate: 'relu'                         # Activation function of ConvBlock
+    disable_cross_layer: False      # Apply Masked ConvBlock at last layer only
+    vq:
+      codebook_size: [64,64,64,64]    # Codebook size of each group in VQ-layer
+      code_dim: [128,128,128,128] # Dim of each group summing up to hidden_size
+      gumbel_temperature: 1.0       # Temperature of Gumbel Softmax in VQ-layer
+
+hparas:
+    optimizer: 'Adam'
+    lr: 0.001
+    epoch: 100
