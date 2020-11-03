@@ -31,7 +31,7 @@ python main.py --config config/self_supervised/npc_example.yml \
 
     - Using Gumbel Softmax from [official API](https://pytorch.org/docs/stable/nn.functional.html#gumbel-softmax) of pytorch
 
-- See [package retuirements](requirements.txt) for toolkits used, `tensorboard` can be used to access log files in `--logdir`.
+- See [package requirement](requirements.txt) for toolkits used, `tensorboard` can be used to access log files in `--logdir`.
 
 
 ## Contact
