@@ -1,6 +1,6 @@
 # Non-Autoregressive Predictive Coding
 
-This repository contains the implementation of Non-Autoregressive Predictive Coding (NPC) as described in [the preprint paper](TODO) submitted to ICASSP 2021.
+This repository contains the implementation of Non-Autoregressive Predictive Coding (NPC) as described in [the preprint paper](https://arxiv.org/abs/2011.00406) submitted to ICASSP 2021.
 
 
 A quick example for training NPC
@@ -43,10 +43,10 @@ Feel free to contact me for questions or feedbacks, my email can be found in the
 If you find our work and/or this repository helpful, please do consider citing us
 
 ```
-@article{liu2020TODO,
-  title   = {TODO},
+@article{liu2020nonautoregressive,
+  title   = {Non-Autoregressive Predictive Coding for Learning Speech Representations from Local Dependencies},
   author  = {Liu, Alexander and Chung, Yu-An and Glass, James},
-  journal = {arXiv preprint arXiv:TODO.TODO},
+  journal = {arXiv preprint arXiv:2011.00406},
   year    = {2020}
 }
 ```
